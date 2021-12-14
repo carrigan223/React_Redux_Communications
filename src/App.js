@@ -1,18 +1,18 @@
-import "./App.css";
-import CustomerList from "./components/customers/customerList/CustomerList";
-import CustomerListHeader from "./components/customers/customerListheader/CustomerListHeader";
-import { populateCustomers } from "./features/customers/customersSlice";
-import { useSelector, useDispatch } from "react-redux";
+import './App.css';
+import CustomerList from './components/customers/customerList/CustomerList';
+import CustomerListHeader from './components/customers/customerListheader/CustomerListHeader';
+import { populateCustomers } from './features/customers/customersSlice';
+import { useSelector, useDispatch } from 'react-redux';
 
 function App() {
   const customers = useSelector((state) => state.customers.value);
   const dispatch = useDispatch();
 
   const getData = () => {
-    fetch("data.json", {
+    fetch('data.json', {
       headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
       }
     })
       .then(function (response) {
@@ -25,12 +25,13 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className='App'>
       <h1>
         {customers.length === 0
-          ? "empty list"
+          ? 'empty list'
           : customers.map((x) => <div>{x.id}</div>)}
       </h1>
+      <h1>Hello World</h1>
       <CustomerListHeader />
       <CustomerList />
     </div>
