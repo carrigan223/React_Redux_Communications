@@ -1,38 +1,17 @@
-import "./App.css";
-import CustomerList from "./components/customers/customerList/CustomerList";
-import CustomerListHeader from "./components/customers/customerListheader/CustomerListHeader";
-import { populateCustomers } from "./features/customers/customersSlice";
-import { useSelector, useDispatch } from "react-redux";
+import './App.css';
+// import { useEffect } from 'react';
+import CustomerListConatiner from './components/customers/customerList/CustomerListContainer';
+import CustomerListHeader from './components/customers/customerListheader/CustomerListHeader';
+// import { fetchCustomers } from './features/customers/customersSlice';
+// import { useSelector, useDispatch } from 'react-redux';
+import SelectedCustomer from './components/selectedCustomer/SelectedCustomer';
 
 function App() {
-  const customers = useSelector((state) => state.customers.value);
-  const dispatch = useDispatch();
-
-  const getData = () => {
-    fetch("data.json", {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      }
-    })
-      .then(function (response) {
-        console.log(response);
-        return response.json();
-      })
-      .then(function (myJson) {
-        console.log(myJson);
-      });
-  };
-
   return (
-    <div className="App">
-      <h1>
-        {customers.length === 0
-          ? "empty list"
-          : customers.map((x) => <div>{x.id}</div>)}
-      </h1>
+    <div className='App'>
       <CustomerListHeader />
-      <CustomerList />
+      <CustomerListConatiner />
+      <SelectedCustomer />
     </div>
   );
 }
