@@ -11,7 +11,7 @@ export const fetchSelectedCustomer = createAsyncThunk(
 );
 
 const initialState = {
-  id: 0,
+  selectedCustomer: 0,
   status: 'idle',
   error: null
 };
@@ -28,7 +28,7 @@ export const selectedCustomerSlice = createSlice({
       .addCase(fetchSelectedCustomer.fulfilled, (state, action) => {
         state.status = 'succeeded';
         // Add any fetched posts to the array
-        state.id = action.payload.id;
+        state.selectedCustomer = action.payload;
       })
       .addCase(fetchSelectedCustomer.rejected, (state, action) => {
         state.status = 'failed';
