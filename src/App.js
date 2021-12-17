@@ -9,7 +9,7 @@ import SelectedCustomer from "./components/selectedCustomer/SelectedCustomer";
 function App() {
   return (
     <div className="h-screen font-sans flex">
-      <div className="w-1/3 border-r-2">
+      <div className="w-1/3 border-r-2 h-full">
         <CustomerListHeader />
         <CustomerListConatiner />
       </div>
