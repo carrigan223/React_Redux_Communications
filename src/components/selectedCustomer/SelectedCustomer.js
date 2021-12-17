@@ -3,7 +3,7 @@ import { fetchSelectedCustomer } from '../../features/selectedCustomer/selectedC
 import { useSelector, useDispatch } from 'react-redux';
 
 export default function SelectedCustomer() {
-  const id = useSelector((state) => state.selectedCustomer.id);
+  const selectedCustomer = useSelector((state) => state.selectedCustomer);
   const selectedCustomerStatus = useSelector(
     (state) => state.selectedCustomer.status
   );
@@ -14,7 +14,7 @@ export default function SelectedCustomer() {
     if (selectedCustomerStatus === 'loading') {
       return <div>Loading</div>;
     } else if (selectedCustomerStatus === 'succeeded') {
-      return <div>Selected Customer id: {id}</div>;
+      return <div>Selected Customer name: {selectedCustomer.selectedCustomer.name}</div>;
     } else if (selectedCustomerStatus === 'failed') {
       return <div>{error}</div>;
     }
@@ -25,5 +25,5 @@ export default function SelectedCustomer() {
       dispatch(fetchSelectedCustomer());
     }
   }, [selectedCustomerStatus, dispatch]);
-  return <div>{renderedSelectedCustomerContent()}</div>;
+  return <div className="h-1/6 border-b-2">{renderedSelectedCustomerContent()}</div>;
 }

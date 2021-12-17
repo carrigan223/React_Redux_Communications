@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
 const CustomerListHeader = () => {
   return (
-    <div>
+    <div className="h-1/6 border-b-2">
       <h1>Customer List header</h1>
     </div>
   );

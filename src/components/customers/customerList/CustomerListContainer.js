@@ -31,7 +31,6 @@ const CustomerListContainer = () => {
 
   return (
     <div>
-      <h1>CustomerList</h1>
       {renderedCustomerListContainerContent()}
     </div>
   );
