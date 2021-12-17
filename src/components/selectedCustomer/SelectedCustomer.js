@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
-import { fetchSelectedCustomer } from '../../features/selectedCustomer/selectedCustomerSlice';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useEffect } from "react";
+import { fetchSelectedCustomer } from "../../features/selectedCustomer/selectedCustomerSlice";
+import { useSelector, useDispatch } from "react-redux";
+import CustomerInitials from "../customers/customerInitials/CustomerInitials";
 
 export default function SelectedCustomer() {
   const selectedCustomer = useSelector((state) => state.selectedCustomer);
@@ -11,19 +12,29 @@ export default function SelectedCustomer() {
   const dispatch = useDispatch();
 
   const renderedSelectedCustomerContent = () => {
-    if (selectedCustomerStatus === 'loading') {
+    if (selectedCustomerStatus === "loading") {
       return <div>Loading</div>;
-    } else if (selectedCustomerStatus === 'succeeded') {
-      return <div>Selected Customer name: {selectedCustomer.selectedCustomer.name}</div>;
-    } else if (selectedCustomerStatus === 'failed') {
+    } else if (selectedCustomerStatus === "succeeded") {
+      return (
+        <div className="flex items-center">
+          <CustomerInitials
+            firstName={selectedCustomer.selectedCustomer.first_name}
+            lastName={selectedCustomer.selectedCustomer.last_name}
+            id={selectedCustomer.selectedCustomer.id}
+          />
+        </div>
+      );
+    } else if (selectedCustomerStatus === "failed") {
       return <div>{error}</div>;
     }
   };
 
   useEffect(() => {
-    if (selectedCustomerStatus === 'idle') {
+    if (selectedCustomerStatus === "idle") {
       dispatch(fetchSelectedCustomer());
     }
   }, [selectedCustomerStatus, dispatch]);
-  return <div className="h-1/6 border-b-2">{renderedSelectedCustomerContent()}</div>;
+  return (
+    <div className="h-1/6 border-b-2">{renderedSelectedCustomerContent()}</div>
+  );
 }
