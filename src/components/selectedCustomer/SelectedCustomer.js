@@ -16,12 +16,13 @@ export default function SelectedCustomer() {
       return <div>Loading</div>;
     } else if (selectedCustomerStatus === "succeeded") {
       return (
-        <div className="flex items-center">
+        <div className="flex items-center h-full bg-gray-50">
           <CustomerInitials
             firstName={selectedCustomer.selectedCustomer.first_name}
             lastName={selectedCustomer.selectedCustomer.last_name}
             id={selectedCustomer.selectedCustomer.id}
           />
+          <div className="text-header font-bold">{selectedCustomer.selectedCustomer.name}</div>
         </div>
       );
     } else if (selectedCustomerStatus === "failed") {
