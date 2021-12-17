@@ -14,7 +14,7 @@ export default function SelectedCustomer() {
     if (selectedCustomerStatus === 'loading') {
       return <div>Loading</div>;
     } else if (selectedCustomerStatus === 'succeeded') {
-      return <div>Selected Customer name: {selectedCustomer.selectedCustomer.messages.map(message => JSON.stringify(message))}</div>;
+      return <div>Selected Customer name: {selectedCustomer.selectedCustomer.name}</div>;
     } else if (selectedCustomerStatus === 'failed') {
       return <div>{error}</div>;
     }
