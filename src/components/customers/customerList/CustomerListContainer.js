@@ -30,7 +30,7 @@ const CustomerListContainer = () => {
   };
 
   return (
-    <div>
+    <div className="h-full overflow-scroll">
       {renderedCustomerListContainerContent()}
     </div>
   );

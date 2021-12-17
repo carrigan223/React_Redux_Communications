@@ -1,16 +1,22 @@
 import React from "react";
+import CustomerInitials from "../customerInitials/CustomerInitials";
+import CustomerCardBody from "./CustomerCardBody";
 
 export default function CustomerCard({ customer }) {
+  let dateString = "";
+  if (customer.messages.length > 0) {
+    const firstMessageDate = new Date(customer.messages[0].created_at);
+    dateString = firstMessageDate.toLocaleString();
+  }
+
   return (
-    <div className="p-3 border-b-2">
-      <div>{customer.name}</div>
-      <div>{customer.messages.length > 0 ? customer.messages[0].body : ""}</div>
-      <div>
-        Agent: {customer.assignments ? customer.assignments[0].user.name : ""}
-      </div>
-      <div>
-        {customer.tags.length > 0 ? customer.tags[0].name : ""}
-      </div>
+    <div className="flex p-3 border-b-2">
+      <CustomerInitials
+        firstName={customer.first_name}
+        lastName={customer.last_name}
+        id={customer.id}
+      />
+      <CustomerCardBody customer={customer} dateString={dateString} />
     </div>
   );
 }
