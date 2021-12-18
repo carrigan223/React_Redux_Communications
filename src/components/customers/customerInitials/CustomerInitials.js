@@ -29,7 +29,7 @@ const CustomerInitials = ({ firstName, lastName, id }) => {
 
 
   return (
-      <div className={`flex-none font-bold relative ${textAndBg(lastIdDigits)} inline-flex items-center justify-center h-14 w-14 rounded-full mx-6`}>
+      <div className={`flex-none font-bold text-xl relative ${textAndBg(lastIdDigits)} inline-flex items-center justify-center h-20 w-20 rounded-full mx-6`}>
         {firstInitial}
         {lastInitial}
       </div>

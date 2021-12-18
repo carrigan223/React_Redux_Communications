@@ -9,7 +9,8 @@ module.exports = {
 
       fontSize: {
         xxs: ["0.625rem", { lineHeight: "1rem" }],
-        sm: ["0.9rem"]
+        sm: ["0.9rem"],
+        header: ["2rem"]
       },
       boxShadow: {
         card: "0px 0.998258px 5px rgba(0, 0, 0, 0.25)",
