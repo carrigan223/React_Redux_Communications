@@ -1,10 +1,14 @@
 import "./App.css";
 // import { useEffect } from 'react';
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import CustomerListConatiner from "./components/customers/customerList/CustomerListContainer";
 import CustomerListHeader from "./components/customers/customerListheader/CustomerListHeader";
 // import { fetchCustomers } from './features/customers/customersSlice';
 // import { useSelector, useDispatch } from 'react-redux';
 import SelectedCustomer from "./components/selectedCustomer/SelectedCustomer";
+
+library.add(faCaretDown);
 
 function App() {
   return (
@@ -15,9 +19,7 @@ function App() {
       </div>
       <div className="w-2/3 flex-col items-start">
         <SelectedCustomer />
-        <div>
-          This will be the customer timeline
-        </div>
+        <div>This will be the customer timeline</div>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
-import CustomerCard from '../customerCard/CustomerCard';
-import { fetchCustomers } from '../../../features/customers/customersSlice';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useEffect } from "react";
+import CustomerCard from "../customerCard/CustomerCard";
+import { fetchCustomers } from "../../../features/customers/customersSlice";
+import { useSelector, useDispatch } from "react-redux";
 
 const CustomerListContainer = () => {
   const customers = useSelector((state) => state.customers.customers);
@@ -11,26 +11,26 @@ const CustomerListContainer = () => {
 
   useEffect(() => {
     console.log(`Customer status: ${customerStatus}`);
-    if (customerStatus === 'idle') {
+    if (customerStatus === "idle") {
       console.log(`Customer status: ${customerStatus}`);
       dispatch(fetchCustomers());
     }
   }, [customerStatus, dispatch]);
 
   const renderedCustomerListContainerContent = () => {
-    if (customerStatus === 'loading') {
+    if (customerStatus === "loading") {
       return <div>Loading</div>;
-    } else if (customerStatus === 'succeeded') {
+    } else if (customerStatus === "succeeded") {
       return customers.map((customer) => {
         return <CustomerCard key={customer.id} customer={customer} />;
       });
-    } else if (customerStatus === 'failed') {
+    } else if (customerStatus === "failed") {
       return <div>{error}</div>;
     }
   };
 
   return (
-    <div className="h-5/6 overflow-scroll">
+    <div className="h-5/6 overflow-scroll ">
       {renderedCustomerListContainerContent()}
     </div>
   );
